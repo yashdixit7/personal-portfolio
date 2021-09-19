@@ -1,0 +1,54 @@
+---
+layout: post
+title: "Minimalist Music Player App using Flutter"
+categories: "post"
+thumbImg: "assets/images/blog/music_player_thumb.png"
+bannerImg: "/assets/images/blog/flutter_banner.png"
+creditImg: ""
+categories: flutter
+date:   2021-08-17 13:21:13 +0530
+intro: "A app that plays music, with a minimalist design."
+---
+This is simple music player app built using flutter.
+The application can be divided into 2 major parts. 
+
+Part A: Finding all the music files present on the device.
+
+Part B: Playing the music file.
+<br>
+<br>
+The packages used for this application are as follows:
+<ul>
+    <b>on_audio_query</b>:  ^1.2.0
+    <br>
+    <b>just_audio</b>: ^0.9.5
+</ul>
+<br>
+on_audio_query allows us to grab the music files location and its metadata (details like artists, album, albumArtwork, etc)
+just_audio allows is the package that will allow us to play the music files
+<br>
+<br>
+
+The application has two screens.
+<br>
+<b>Screen A:</b> Home screen, where you would get all the list of the songs on the device.
+On this screen you can also search for a particular search you want. The search can be based upon the song title aswell as the artist name.
+
+<b>Screen B:</b> Music player screen, this is where the music choosen would be played. Here you can have control over the music being played by being able to update the trackbar position, change the song, shuffle the song, loop the song, play/pause the song.
+<br>
+<div style="text-align: center;">
+    <img src="{{ site.baseurl }}/assets/images/blog/search-gif.gif" height="600"/> 
+    <img src="{{ site.baseurl }}/assets/images/blog/play-gif.gif" height="600"/> 
+</div>
+
+<br>
+<i>Note: The method of getting artwork for Android API level >= 29 is different than the previous version. The methods useds in this project are applicable for >=29 level, hence appropriate changes have to be made to make the method work for lower API levels.</i>
+
+<br>
+<br>
+The code for the above project can be found on the GitHub link below.
+<a href="https://github.com/Avoltech/Music_player_minimalist"> Music_player_minimalist</a> 
+
+
+
+

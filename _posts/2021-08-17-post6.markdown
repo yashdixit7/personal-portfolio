@@ -1,0 +1,106 @@
+---
+layout: post
+title: "Crypto Price API"
+thumbImg: "assets/images/blog/crypto_api_thumb.png"
+bannerImg: "/assets/images/blog/crypto_api_banner.jpeg"
+imgCredit: "Image Credit: https://pixelz.cc/"
+categories: flutter ESTA
+date:   2021-08-17 13:21:13 +0530
+intro: "An API that gets daily time frame data of any crypto currency. It uses Yahoo Finance Website to scrape the values."
+---
+
+<p>
+The following is an API that takes get the crypto price data from Yahoo Finance.
+<br>
+The api takes 3 things as input:
+<ol>
+    <li><b>Name of the crypto currency</b></li>
+    <li><b>Start Date (mm-dd-yyyy)</b></li>
+    <li><b>End Date (mm-dd-yyyy)</b></li>
+</ol>
+<br>
+Technologies used:
+<ul>
+    <li><b>Flask (Python Framework)</b></li>
+    <li><b>Heroku (Cloud Deployment)</b></li>
+    <li><b>Beautiful Soup (Web Scraping Library)</b></li>
+</ul>
+
+<br>
+<br>
+<h4>How does the API work?</h4>
+
+1. The API takes the inputs from users
+<br>
+2. Converts the dates into unix format
+<br>
+3. Uses these newly converted dates as arguments to Yahoo Finance url
+<br>
+4. Scrape the price data using Beatuiful Soup
+<br>
+5. Converts and returns the prices in JSON format
+<br>
+<br>
+
+<p>
+API 1:<h5><i>/getNames</i></h5><br>Usage: <h6>https://crypto-api-yf.herokuapp.com/getNames</h6>==> Returns a list of crypto supported by yahoo finance 
+	<br><br><br>API 2: <h5><i>/getData?name=&lt;insert_crypto_name_here&gt;&start=&lt;insert_start_date_here&gt;&end=&lt;insert_end_date_here&gt;</i></h5><br>Example: <h6>https://crypto-api-yf.herokuapp.com/getData?name=ETH&start=08-20-2021&end=08-30-2021</h6>==> Returns daily crypto data'
+</p>
+
+<br>
+Call API 1 to get the list of cryptos before calling API 2.
+<br>
+<br>
+<p>
+Here, is what the output can be if the JSON output is turned into a table.</p>
+
+<style type="text/css">
+	table.tableizer-table {
+		font-size: 12px;
+		border: 1px solid #CCC; 
+		font-family: Arial, Helvetica, sans-serif;
+	} 
+	.tableizer-table td {
+		padding: 4px;
+		margin: 3px;
+		border: 1px solid #CCC;
+	}
+	.tableizer-table th {
+		background-color: #104E8B; 
+		color: #FFF;
+		font-weight: bold;
+	}
+</style>
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Adj Close</th><th>Volume</th></tr></thead><tbody>
+ <tr><td>30-08-2021</td><td>3227.19</td><td>3346.58</td><td>3151.44</td><td>3224.37</td><td>3224.37</td><td>19306924485</td></tr>
+ <tr><td>29-08-2021</td><td>3246.77</td><td>3283.24</td><td>3158.84</td><td>3227</td><td>3227</td><td>13296586731</td></tr>
+ <tr><td>28-08-2021</td><td>3275.1</td><td>3284.85</td><td>3217.4</td><td>3244.4</td><td>3244.4</td><td>13709633698</td></tr>
+ <tr><td>27-08-2021</td><td>3096.41</td><td>3281.84</td><td>3064.49</td><td>3270.6</td><td>3270.6</td><td>18489602004</td></tr>
+ <tr><td>26-08-2021</td><td>3228.75</td><td>3249.66</td><td>3060.23</td><td>3100.33</td><td>3100.33</td><td>17405668117</td></tr>
+ <tr><td>25-08-2021</td><td>3174.27</td><td>3248.73</td><td>3086.11</td><td>3224.92</td><td>3224.92</td><td>18902728235</td></tr>
+ <tr><td>24-08-2021</td><td>3324.86</td><td>3358.69</td><td>3154.12</td><td>3172.46</td><td>3172.46</td><td>20131028906</td></tr>
+ <tr><td>23-08-2021</td><td>3241.36</td><td>3373.38</td><td>3235.85</td><td>3319.26</td><td>3319.26</td><td>20511110509</td></tr>
+ <tr><td>22-08-2021</td><td>3226.23</td><td>3272.73</td><td>3142.01</td><td>3242.12</td><td>3242.12</td><td>15983278460</td></tr>
+ <tr><td>21-08-2021</td><td>3286.93</td><td>3307.35</td><td>3209.87</td><td>3226.08</td><td>3226.08</td><td>18113977628</td></tr>
+ <tr><td>20-08-2021</td><td>3182.16</td><td>3298.25</td><td>3178.1</td><td>3286.94</td><td>3286.94</td><td>20885619828</td></tr>
+</tbody></table>
+
+
+<br>
+<br>
+<i>You can find the call the api from here: 
+<br>
+Sample Link:
+<br>
+<a href='https://crypto-api-yf.herokuapp.com/getData?name=BTC&start=08-20-2021&end=09-01-2021'>https://crypto-api-yf.herokuapp.com/getData?name=BTC&start=08-20-2021&end=09-01-2021</a>
+<br>
+(gets daily time frame Bitcoin price data: open, low, high, close, adjusted close, volume)
+(between 20/08/2021 to 1/09/2021)
+</i>
+<br>
+<br>
+<i>Note: This is hosted on free version of Heroku Cloud, hence may take longer to run inital (about 10-20 seconds)</i>
+<br>
+<br>
+<i>GitHub Link: <a href='https://github.com/Avoltech/CryptoPriceApi'>https://github.com/Avoltech/CryptoPriceApi</a></i>

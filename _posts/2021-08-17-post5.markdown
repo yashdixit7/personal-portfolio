@@ -1,0 +1,64 @@
+---
+layout: post
+title: "ESTAA: Erp System Team Achilles and Annihilator"
+thumbImg: "assets/images/blog/erp_thumb.png"
+bannerImg: "/assets/images/blog/erp_banner.png"
+imgCredit: ""
+categories: flutter ESTA
+date:   2021-08-17 13:21:13 +0530
+intro: "An ERP system build for the Efficycle team Achilles and Annihilator that is used to obtain materials and equipments for building the vehicle"
+---
+
+<p>
+ESTAA, is an application that is used by the team members of the Achilles and Annhiliator where they can send requests for obtaining the required materials and equipments that can be used to build the efficycle vehicle.
+The request send by the team members goes through the inspection of multiple "Heads". The "Heads" have different jobs to do on the form and have different rights depending upon thier position.
+<br>
+<br>
+This application was made in order to mimick the actual working as seen in industries.
+The application was developed when I was the Departmental Head of Automation Department (Programming and Electronics) for the year 2019-2020, of team <i style="font-weight: bold;">Annihilator (SAE India Efficycle AIR 4)</i>
+</p>
+<br>
+
+<h5 class="my-3">Technologies used:</h5>
+<ul class="mb-5">
+<li class="mb-2"><h6>Flutter :</h6> for building the application</li>
+<li class="mb-2"><h6>Firebase :</h6> for user authentication</li>
+<li class="mb-2"><h6>Firestore :</h6> for database storage (NoSql) and access</li>
+</ul>
+
+Following is the overall flow of the entire application:
+<div style="text-align: center;">
+    <img src="{{ site.baseurl }}/assets/images/blog/erp_flow.png"> 
+</div>
+
+<br>
+<br>
+
+Here are some images of the App:
+<div style="text-align: center;">
+    <img src="{{ site.baseurl }}/assets/images/blog/esta 1.jpg" width="300"> 
+    <img src="{{ site.baseurl }}/assets/images/blog/esta 2.jpg" width="300"> 
+</div>
+<br>
+<div style="text-align: center;">
+    <img src="{{ site.baseurl }}/assets/images/blog/esta 3.jpg" width="300"> 
+    <img src="{{ site.baseurl }}/assets/images/blog/esta 4.jpg" width="300"> 
+</div>
+<br>
+<div style="text-align: center;">
+    <img src="{{ site.baseurl }}/assets/images/blog/esta 5.jpg" width="300"> 
+    <img src="{{ site.baseurl }}/assets/images/blog/esta 6.jpg" width="300"> 
+</div>
+<br>
+
+<p>
+The UI of homescreen automatically get update based upon the position of the team member.
+<br>
+i.e the UI of a department head will have different features(more features) than a member's UI.
+<br>
+Similarly the procurement members and head will have different features then the rest and so on.</p>
+
+
+<br>
+<br>
+<i>Note: The app is is being used by the team for their use. The team being still a participant of the competition the code base cannot be shared.</i>

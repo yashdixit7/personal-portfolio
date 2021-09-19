@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include header.html %}
+    </head>
+    <body>
+        {% include sidebar.html %}
+        
+
+            <article class="blog-post px-3 py-5">
+                <div class="container single-col-max-width">
+                    <header class="blog-post-header">
+                        <h2 class="title mb-2 text-center">{{ page.title }}</h2>
+                           <br> 
+                           <hr>
+                           <br>
+                    </header>
+                    
+                    <div class="blog-post-body">
+                        <figure class="blog-banner">
+                            <img class="img-fluid" src="{{ site.baseurl }}{{ page.bannerImg }}" alt="image">
+                            <figcaption class="mt-2 text-center image-caption">{{ page.imgCredit }}</figcaption>
+                        </figure>
+                        {{ page.content }}                     
+                    </div>
+                </div>
+            </article>        
+
+    </body>
+</html>

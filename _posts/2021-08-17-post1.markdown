@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Battle of Neighborhoods: Venues of Mumbai"
+categories: "EDA "
+thumbImg: "assets/images/blog/eda_1_thumb.jpg"
+bannerImg: "/assets/images/blog/mumbai_banner.png"
+imgCredit: "Image Credit: asdasd"
+categories: jekyll update
+date:   2021-08-17 13:21:13 +0530
+intro: "EDA on the venues of Mumbai. What could be a good business and where?"
+---
+
+<p>
+This was a project done for as the submission for Capstone Project under the IBM Data Science Professional Certification.
+In this project Foursquar Api was used get different veneues from Mumbai City, and exploratory data analysis was performed on the same. The project is better viewed in the form of IPython Notebook which can be found at the link below.
+<a href="https://github.com/Avoltech/Applied-Data-Science-Capstone-Course/blob/master/Battle%20of%20Neighborhoods.ipynb">https://github.com/Avoltech/Applied-Data-Science-Capstone-Course/blob/master/Battle%20of%20Neighborhoods.ipynb</a>
+</p>
+<embed src="/assets/Battle of Neighborhoods.pdf" width="640px" height="2100px" />

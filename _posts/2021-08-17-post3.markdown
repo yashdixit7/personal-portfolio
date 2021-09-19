@@ -1,0 +1,687 @@
+---
+layout: post
+title: "Speech Sentiment Analysis Using Acoustic Features"
+categories: "post"
+thumbImg: "assets/images/blog/mic_thumb.jpg"
+bannerImg: "/assets/images/blog/speech_sentiment_analysis_banner.png"
+imgCredit: "Img Credit: SRI International"
+categories: jekyll update
+date:   2021-08-17 13:21:13 +0530
+intro: "Emotion dectection in human speech using the sound waves i.e acoustic part without and linguistic processing. Also contains a research paper that compares various feature extraction techniques, individualy and combined"
+---
+<p>
+&emsp;&emsp;As technology has developed so has our methods of interacting with them. From physical keys, to virtual Graphical User Interfaces, and finally to Voice User Interfaces, Human Computer Interaction has come a long way. Today, we can successfully use are voice to give commands to different software. This is achieved by the use of Natural Language Processing, i.e., the linguistic aspect of voice interaction. 
+In this project we try to understand if the acoustic approach can be used for a overall better voice interaction. Here, we use the sound waves from human voices to analysis the underlying tone of the speaker and classify it according to their emotion. This would help in providing additional information about the user, the state of his emotion at that moment. This sentiment detection is achieved using machine learning. The project consists of 2 important parts. The first step is extraction of features form the sound clips and the second one is to train a model based on the acquired feature matrix. 
+Feature extraction step is carried out to improve model performance by taking out the import features and using them as inputs for model, rather than using the sound waves as input directly. A comparison between the features and the resultant accuracy is also carried out, along with the comparison of multiple features as input to the model instead of a single one.
+</p>
+<br>
+<p>
+&emsp;&emsp;Human–computer interaction (HCI) studies the design and use of computer technology, focused on the interfaces between people (users) and computers. Right from the start of emerging new technologies Graphical User Interfaces (GUIs) have been the industry standard for decades now. While GUI has virtual keys and buttons, a voice-user interface (VUI) makes spoken human interaction with computers possible, using speech recognition to understand spoken commands and answer questions, and typically respond with a text to speech module as a reply. This field has been mainly driven based upon the linguistic part of the speech. The new advancements in Voice Interaction has been made mainly in the fields of Natural Language Processing, whereas the acoustic part of the speech, the underlying sentiment behind the speech hasn’t been explored much. Here in this project, we analysis the sentiment in the voice of the speaker. This is carried out using machine learning.
+</p>
+<br>
+<p>
+&emsp;&emsp;The challenging aspect of this idea is the feeding of data to the model. As sound waves are more or less set of random values, tweaking and shaping them into sensible features so as to feed them as input, is the core of this project. This feature extraction stage is carried out using the functions present in Librosa python package. This is a library focused on sound processing and provides useful algorithms for feature extractions. In this project we have used various sound processing and they are MFCC (Mel Frequency Cepstral Coefficients), Spectral Contrast, Chroma, Mel Spectrogram Frequency and Tonnetz. The datasets used in this project is the RAVDESS (Ryerson Audio Visual Database of Emotional Speech and Song) and CORPUS JL opensource datasets. 
+</p>
+<br>
+<p>
+&emsp;&emsp; To read more about the methodoloy and procedure, please read the report linked at the end.
+</p>
+<br>
+<h2>Results</h2>
+<p>&emsp;&emsp;Following tables contain the result obtained from the project, which includes performance of the model and the comparison between different feature extraction technique and thier combinations.  </p> 
+<caption><p style="text-align:center; font-weight: bold; font-size: 120%;">Table 1: Individual feature comparison table</p></caption>
+<table width="567">
+<tbody>
+<tr>
+<td width="66">
+<p><strong>Dataset Used</strong></p>
+</td>
+<td width="104">
+<p><strong>Feature(s)</strong></p>
+</td>
+<td width="132">
+<p><strong>Selection Type</strong></p>
+</td>
+<td width="76">
+<p><strong>Test Score</strong></p>
+</td>
+<td width="85">
+<p><strong>Train Score</strong></p>
+</td>
+<td width="104">
+<p><strong>Average Score</strong></p>
+</td>
+</tr>
+<tr>
+<td rowspan="10" width="66">
+<p>CORPUS JL</p>
+</td>
+<td rowspan="2" width="104">
+<p>chroma</p>
+</td>
+<td width="132">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.5469</p>
+</td>
+<td width="85">
+<p>0.6901</p>
+</td>
+<td width="104">
+<p>0.6185</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.5521</p>
+</td>
+<td width="85">
+<p>0.7201</p>
+</td>
+<td width="104">
+<p>0.6361</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="104">
+<p>contrast</p>
+</td>
+<td width="132">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.6667</p>
+</td>
+<td width="85">
+<p>0.7747</p>
+</td>
+<td width="104">
+<p>0.7207</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.6667</p>
+</td>
+<td width="85">
+<p>0.7747</p>
+</td>
+<td width="104">
+<p>0.7207</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="104">
+<p>mel</p>
+</td>
+<td width="132">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.8542</p>
+</td>
+<td width="85">
+<p>0.9362</p>
+</td>
+<td width="104">
+<p>0.8952</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.8385</p>
+</td>
+<td width="85">
+<p>0.9089</p>
+</td>
+<td width="104">
+<p>0.8737</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="104" bgcolor="yellow">
+<p>mfcc</p>
+</td>
+<td width="132">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.8698</p>
+</td>
+<td width="85">
+<p>0.9219</p>
+</td>
+<td width="104">
+<p>0.8958</p>
+</td>
+</tr>
+<tr>
+<td width="132" bgcolor="yellow">
+<p>minmaxavg</p>
+</td>
+<td width="76" bgcolor="yellow">
+<p>0.8802</p>
+</td>
+<td width="85" bgcolor="yellow">
+<p>0.9232</p>
+</td>
+<td width="104" bgcolor="yellow">
+<p>0.9017</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="104">
+<p>tonnetz</p>
+</td>
+<td width="132">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.4323</p>
+</td>
+<td width="85">
+<p>0.6237</p>
+</td>
+<td width="104">
+<p>0.5280</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.3229</p>
+</td>
+<td width="85">
+<p>0.5951</p>
+</td>
+<td width="104">
+<p>0.4590</p>
+</td>
+</tr>
+<tr>
+<td rowspan="10" width="66">
+<p>RAVDESS</p>
+</td>
+<td rowspan="2" width="104">
+<p>chroma</p>
+</td>
+<td width="132">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.3556</p>
+</td>
+<td width="85">
+<p>0.6164</p>
+</td>
+<td width="104">
+<p>0.4860</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.3556</p>
+</td>
+<td width="85">
+<p>0.6462</p>
+</td>
+<td width="104">
+<p>0.5009</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="104">
+<p>contrast</p>
+</td>
+<td width="132">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.5259</p>
+</td>
+<td width="85">
+<p>0.6611</p>
+</td>
+<td width="104">
+<p>0.5935</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.5259</p>
+</td>
+<td width="85">
+<p>0.6611</p>
+</td>
+<td width="104">
+<p>0.5935</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="104">
+<p>mel</p>
+</td>
+<td width="132">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.5259</p>
+</td>
+<td width="85">
+<p>0.7430</p>
+</td>
+<td width="104">
+<p>0.6345</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.5556</p>
+</td>
+<td width="85">
+<p>0.6890</p>
+</td>
+<td width="104">
+<p>0.6223</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="104">
+<p>mfcc</p>
+</td>
+<td width="132">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.6741</p>
+</td>
+<td width="85">
+<p>0.8343</p>
+</td>
+<td width="104">
+<p>0.7542</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.6667</p>
+</td>
+<td width="85">
+<p>0.8287</p>
+</td>
+<td width="104">
+<p>0.7477</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="104">
+<p>tonnetz</p>
+</td>
+<td width="132">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.3556</p>
+</td>
+<td width="85">
+<p>0.5885</p>
+</td>
+<td width="104">
+<p>0.4720</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.2741</p>
+</td>
+<td width="85">
+<p>0.5512</p>
+</td>
+<td width="104">
+<p>0.4126</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<caption><p style="text-align:center; font-weight: bold; font-size: 120%;">Table 2: Combination of feature extraction technique comparison</p></caption>
+<table width="548">
+<tbody>
+<tr>
+<td width="94">
+<p><strong>Dataset Used</strong></p>
+</td>
+<td width="66">
+<p><strong>Feature(s)</strong></p>
+</td>
+<td width="113">
+<p><strong>Selection Type</strong></p>
+</td>
+<td width="76">
+<p><strong>Test Score</strong></p>
+</td>
+<td width="85">
+<p><strong>Train Score</strong></p>
+</td>
+<td width="113">
+<p><strong>Average</strong></p>
+<p><strong>Score</strong></p>
+</td>
+</tr>
+<tr>
+<td rowspan="8" width="94">
+<p>CORPUS JL</p>
+</td>
+<td rowspan="2" width="66">
+<p>contrast,mel</p>
+</td>
+<td width="113">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.547</p>
+</td>
+<td width="85">
+<p>0.690</p>
+</td>
+<td width="113">
+<p>0.8880</p>
+</td>
+</tr>
+<tr>
+<td width="113">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.552</p>
+</td>
+<td width="85">
+<p>0.720</p>
+</td>
+<td width="113">
+<p>0.8770</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="66">
+<p>mffcc, contrast</p>
+</td>
+<td width="113">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.667</p>
+</td>
+<td width="85">
+<p>0.775</p>
+</td>
+<td width="113">
+<p>0.8926</p>
+</td>
+</tr>
+<tr>
+<td width="113">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.667</p>
+</td>
+<td width="85">
+<p>0.775</p>
+</td>
+<td width="113">
+<p>0.9010</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="66"  bgcolor="yellow">
+<p>mfcc,</p>
+<p>mel</p>
+</td>
+<td width="113">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.854</p>
+</td>
+<td width="85">
+<p>0.936</p>
+</td>
+<td width="113">
+<p>0.9010</p>
+</td>
+</tr>
+<tr>
+<td width="113" bgcolor="yellow">
+<p>minmaxavg</p>
+</td>
+<td width="76" bgcolor="yellow">
+<p>0.839</p>
+</td>
+<td width="85" bgcolor="yellow">
+<p>0.909</p>
+</td>
+<td width="113"  bgcolor="yellow">
+<p>0.9121</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="66"  bgcolor="yellow">
+<p>mfcc, contrast, mel</p>
+</td>
+<td width="113">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.870</p>
+</td>
+<td width="85">
+<p>0.922</p>
+</td>
+<td width="113">
+<p>0.8971</p>
+</td>
+</tr>
+<tr>
+<td width="113"  bgcolor="yellow">
+<p>minmaxavg</p>
+</td>
+<td width="76"  bgcolor="yellow">
+<p>0.880</p>
+</td>
+<td width="85"  bgcolor="yellow">
+<p>0.923</p>
+</td>
+<td width="113"  bgcolor="yellow">
+<p>0.9128</p>
+</td>
+</tr>
+<tr>
+<td rowspan="8" width="94">
+<p>RAVDESS</p>
+</td>
+<td rowspan="2" width="66">
+<p>contrast,</p>
+<p>mel</p>
+</td>
+<td width="113">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.356</p>
+</td>
+<td width="85">
+<p>0.616</p>
+</td>
+<td width="113">
+<p>0.6817</p>
+</td>
+</tr>
+<tr>
+<td width="113">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.356</p>
+</td>
+<td width="85">
+<p>0.646</p>
+</td>
+<td width="113">
+<p>0.6316</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="66">
+<p>mfcc, contrast</p>
+</td>
+<td width="113">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.526</p>
+</td>
+<td width="85">
+<p>0.661</p>
+</td>
+<td width="113">
+<p>0.7644</p>
+</td>
+</tr>
+<tr>
+<td width="113">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.526</p>
+</td>
+<td width="85">
+<p>0.661</p>
+</td>
+<td width="113">
+<p>0.7356</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="66">
+<p>mfcc,</p>
+<p>mel</p>
+</td>
+<td width="113">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.526</p>
+</td>
+<td width="85">
+<p>0.743</p>
+</td>
+<td width="113">
+<p>0.7644</p>
+</td>
+</tr>
+<tr>
+<td width="113">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.556</p>
+</td>
+<td width="85">
+<p>0.689</p>
+</td>
+<td width="113">
+<p>0.7598</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" width="66">
+<p>mfcc,</p>
+<p>contrast,</p>
+<p>mel</p>
+</td>
+<td width="113">
+<p>avg</p>
+</td>
+<td width="76">
+<p>0.674</p>
+</td>
+<td width="85">
+<p>0.834</p>
+</td>
+<td width="113">
+<p>0.7644</p>
+</td>
+</tr>
+<tr>
+<td width="113">
+<p>minmaxavg</p>
+</td>
+<td width="76">
+<p>0.667</p>
+</td>
+<td width="85">
+<p>0.829</p>
+</td>
+<td width="113">
+<p>0.7598</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+
+<p>
+An application was also built that was use to classify the emotion in real time.
+PyQt5 was used to build the GUI of the application.
+<p>
+<div style="text-align: center;">
+    <img src="{{ site.baseurl }}/assets/images/blog/sentiment_analysis_image_1.png"/> 
+</div>
+<br>
+<br>
+<h2>Conclusion</h2>
+<p>
+&emsp;&emsp;Using just the intensity and the variance of the sound waves in a human speech, the underlying emotions can be understood to some extent without linguistic processing.  This means that acoustic features can act as an important factor in Speech Emotion Recognition (SER) with its big brother Natural Language Processing (NLP). Even without knowing the actual words the sound waves can be analyzed to understand the emotion, this result can further be developed by classifying the words in the speech based on their sentiments, positive and negative. This combination would yield much more better results. 
+&emsp;&emsp;MFCC still stands out to be the best feature extraction technique for speech sentiment analysis for short duration sound clips. A combination of the feature extraction techniques or the minimum and the maximum values of the features does not provide a substantial increase in the accuracy than a single technique alone.
+</p>
+<hr>
+<br>
+<br>
+<p style="font-style: italic;">
+The entire report can be found <a href="https://docs.google.com/presentation/d/1FqBpm1VfQbl_8cuHn7zqmwZg640ET9pA/edit?usp=sharing&ouid=103799626484794652199&rtpof=true&sd=true">here.</a>
+<br>
+<br>
+
+
+The published paper can be found on this link: <a href="https://ijisrt.com/feature-extraction-techniques-comparison-for-emotion-recognition-using-acoustic-features">https://ijisrt.com/feature-extraction-techniques-comparison-for-emotion-recognition-using-acoustic-features</a>
+</p>
